@@ -2,7 +2,7 @@
 
 > Portfólio profissional de Jhonatas Lima - Tech Lead & Solutions Architect
 
-[![Live Demo](https://img.shields.io/badge/demo-live-success)](https://jhonnhenry.github.io/sitejhonataslima/)
+[![Live Demo](https://img.shields.io/badge/demo-live-success)](https://www.jhonataslima.com/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## 📋 Sobre o Projeto
@@ -19,7 +19,7 @@ Landing page moderna e responsiva desenvolvida para apresentar o portfólio prof
 
 ## 🚀 Demonstração
 
-Acesse a versão live: [https://jhonnhenry.github.io/sitejhonataslima/](https://jhonnhenry.github.io/sitejhonataslima/)
+Acesse a versão live: [https://www.jhonataslima.com/](https://www.jhonataslima.com/)
 
 ## 🎨 Seções
 
@@ -211,11 +211,11 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 **Jhonatas Lima**
 - Tech Lead & Solutions Architect
-- Website: [JHL Software](https://jhonnhenry.github.io/sitejhonataslima/)
+- Website: [JHL Software](https://www.jhonataslima.com/)
 - LinkedIn: [@jhonataslima](https://www.linkedin.com/in/jhonataslima/)
 - GitHub: [@jhonnhenry](https://github.com/jhonnhenry)
 - Instagram: [@jhonatashenrique](https://www.instagram.com/jhonatashenrique/)
-- Email: jhlmota@gmail.com
+- Email: contato@jhonataslima.com
 
 ## 🙏 Agradecimentos
 
