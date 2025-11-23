@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhonatas Lima - Tech Lead & Solutions Architect</title>
+    <meta name="description" content="Tech Lead e Arquiteto de Soluções com mais de 20 anos de experiência em desenvolvimento de software e liderança técnica.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Custom Tailwind Config */
+        @layer utilities {
+            .bg-slate-surface {
+                background-color: #1e293b;
+            }
+            .bg-slate-850 {
+                background-color: #172033;
+            }
+            .text-cream {
+                color: #fefce8;
+            }
+            .text-sky {
+                color: #38bdf8;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Glow Effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header Shadow on Scroll */
+        .header-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee {
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Back to Top Button */
+        #back-to-top {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        #back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #back-to-top:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 glass transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <img src="img/logo JHL Software.png" alt="JHL Software" style="height:4rem" class="w-auto transition-transform duration-300 group-hover:scale-105">
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors duration-300">Home</a>
+                    <a href="#sobre" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors duration-300">Sobre Mim</a>
+                    <a href="#equipe" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors duration-300">Equipe</a>
+                    <a href="#clientes" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors duration-300">Clientes</a>
+                    <a href="#projetos" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors duration-300">Projetos</a>
+
+                    <!-- CTA Button -->
+                    <a href="#contato" class="px-6 py-2 border-2 border-sky-400 text-sky-400 rounded-lg font-semibold hover:bg-sky-400 hover:text-slate-900 transition-all duration-300">
+                        Fale Comigo
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="lg:hidden p-2 text-slate-300 hover:text-sky-400 transition-colors" aria-label="Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 bottom-0 w-full lg:hidden bg-slate-900 z-50">
+            <div class="flex flex-col h-full">
+                <!-- Mobile Menu Header -->
+                <div class="flex items-center justify-between px-6 py-4 border-b border-slate-700">
+                    <img src="img/logo JHL Software.png" alt="JHL Software" class="h-10 w-auto">
+                    <button id="mobile-menu-close" class="p-2 text-slate-300 hover:text-sky-400 transition-colors" aria-label="Fechar menu">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Links -->
+                <nav class="flex-1 px-6 py-8 space-y-6">
+                    <a href="#home" class="mobile-link block text-2xl font-semibold text-slate-300 hover:text-sky-400 transition-colors">Home</a>
+                    <a href="#sobre" class="mobile-link block text-2xl font-semibold text-slate-300 hover:text-sky-400 transition-colors">Sobre Mim</a>
+                    <a href="#equipe" class="mobile-link block text-2xl font-semibold text-slate-300 hover:text-sky-400 transition-colors">Equipe</a>
+                    <a href="#clientes" class="mobile-link block text-2xl font-semibold text-slate-300 hover:text-sky-400 transition-colors">Clientes</a>
+                    <a href="#projetos" class="mobile-link block text-2xl font-semibold text-slate-300 hover:text-sky-400 transition-colors">Projetos</a>
+
+                    <!-- Mobile CTA -->
+                    <a href="#contato" class="mobile-link block w-full mt-8 px-6 py-4 bg-sky-400 text-slate-900 rounded-lg font-bold text-center hover:bg-sky-500 transition-all">
+                        Fale Comigo
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Footer -->
+                <div class="px-6 py-6 border-t border-slate-700">
+                    <div class="flex space-x-6 justify-center">
+                        <a href="https://github.com/jhonathas" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors">
+                            <i data-lucide="github" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/jhonathaslima" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://instagram.com/jhonathas.lima" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+            <!-- Background Glow Effects -->
+            <div class="absolute top-1/4 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl -z-10"></div>
+            <div class="absolute bottom-0 left-0 w-72 h-72 bg-slate-700/10 rounded-full blur-3xl -z-10"></div>
+
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Text Content -->
+                    <div class="order-2 md:order-1 reveal">
+                        <!-- Badge -->
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-sky-400 text-xs font-semibold mb-6">
+                            <i data-lucide="code-2" class="w-3 h-3"></i>
+                            Tech Lead & Solutions Architect
+                        </div>
+
+                        <!-- Headline -->
+                        <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+                            Desenvolvedor <br>
+                            <span class="gradient-text">Tech Lead</span> <br>
+                            Fundador da JHL Software
+                        </h1>
+
+                        <!-- Description -->
+                        <p class="text-lg text-slate-400 mb-8 leading-relaxed max-w-xl">
+                            Com 20 anos de experiência em T.I., sou especialista em transformar desafios de negócio em software
+                            robusto. Focado no ecossistema Microsoft (C#, .NET, Azure e SQL Server), atuo de ponta a ponta: da
+                            arquitetura da solução à entrega final.
+                        </p>
+
+                        <!-- CTAs -->
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#projetos" class="px-8 py-3 bg-yellow-50 text-slate-900 rounded-full font-bold hover:bg-white hover:shadow-lg hover:shadow-yellow-50/20 transition-all duration-300 flex items-center gap-2 glow-hover">
+                                Ver meus projetos
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                            <a href="#contato" class="px-8 py-3 border-2 border-slate-700 text-slate-300 rounded-full font-semibold hover:border-sky-400 hover:text-sky-400 transition-all duration-300">
+                                Entrar em contato
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Profile Image -->
+                    <div class="order-1 md:order-2 flex justify-center reveal delay-200 relative">
+                        <div class="relative w-96 h-96 md:w-[500px] md:h-[500px]">
+                            <!-- Rotated Background -->
+                            <div class="absolute inset-0 bg-slate-800 rounded-full rotate-6 transform translate-x-2 translate-y-2 z-0"></div>
+
+                            <!-- Profile Photo with Grayscale Effect -->
+                            <img src="img/jhon01.png"
+                                 alt="Jhonatas Lima"
+                                 class="relative w-full h-full object-cover rounded-full border-4 border-slate-800 shadow-2xl z-10 hover:grayscale transition-all duration-500">
+
+                            <!-- Floating Badge "20+ Anos" -->
+                            <div class="absolute -bottom-4 -right-4 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl z-20 flex items-center gap-3 float-animation">
+                                <div class="bg-sky-500/20 p-2 rounded-lg">
+                                    <i data-lucide="award" class="w-6 h-6 text-sky-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Experiência</p>
+                                    <p class="text-lg font-bold text-white">20+ Anos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Mim Section -->
+        <section id="sobre" class="py-24 bg-slate-850 relative">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <!-- Image Left -->
+                    <div class="relative reveal">
+                        <img src="img/jhon02.png"
+                             alt="Jhonatas Lima - Profissional"
+                             class="rounded-2xl shadow-2xl opacity-80 hover:opacity-100 transition-opacity duration-500 w-full">
+                        <!-- Decorative Background Box -->
+                        <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-slate-800 rounded-lg -z-10 hidden md:block"></div>
+                    </div>
+
+                    <!-- Text Right -->
+                    <div class="reveal delay-200">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Sobre Mim</h2>
+
+                        <div class="space-y-6 text-slate-400 leading-relaxed">
+                            <p>
+                                <strong class="text-yellow-50">Olá, sou Jhonatas Lima.</strong>
+                            </p>
+
+                            <p>
+                                Minha trajetória na tecnologia é pautada pela busca constante por excelência e qualificação.
+                                Tudo começou com uma base sólida: em 2005 formei-me <strong class="text-yellow-50">Técnico em Informática pelo
+                                IFTO</strong> e, em 2013, consolidei meu conhecimento como <strong class="text-yellow-50">Bacharel em Sistemas
+                                de Informação pela Faculdade Católica do Tocantins</strong>.
+                            </p>
+
+                            <p>
+                                Hoje, com duas décadas de carreira, aplico essa expertise acadêmica e prática como
+                                <strong class="text-yellow-50">Tech Lead e Fundador da JHL Software</strong>. Meu foco é desenhar a arquitetura
+                                ideal no ecossistema Microsoft — com ênfase em soluções na nuvem com Azure — para garantir
+                                que a tecnologia gere crescimento real para meus clientes em todo o Brasil.
+                            </p>
+
+                            <p>
+                                Acredito que a tecnologia deve servir às pessoas. Esse compromisso com a qualidade que levo
+                                para os códigos, também dedico à minha vida pessoal, onde construí minha família. Para mim,
+                                o sucesso é o equilíbrio entre uma solução técnica impecável e um lar feliz.
+                            </p>
+                        </div>
+
+                        <!-- Education Badges -->
+                        <div class="mt-8 flex gap-4">
+                            <div class="flex flex-col gap-1">
+                                <span class="text-2xl font-bold text-white">IFTO</span>
+                                <span class="text-xs text-slate-500 uppercase tracking-wider">Técnico 2005</span>
+                            </div>
+                            <div class="w-px h-12 bg-slate-700"></div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-2xl font-bold text-white">Católica</span>
+                                <span class="text-xs text-slate-500 uppercase tracking-wider">Bacharel 2013</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipe Section -->
+        <section id="equipe" class="py-24 bg-slate-900">
+            <div class="container mx-auto px-6">
+                <!-- Introduction with Photo -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16 reveal">
+                    <!-- Photo Left -->
+                    <div class="relative">
+                        <img src="img/jhon03.png"
+                             alt="Jhonatas Lima - Liderança"
+                             class="rounded-2xl shadow-2xl w-full opacity-80 hover:opacity-100 transition-opacity duration-500">
+                        <div class="absolute -bottom-4 -right-4 w-40 h-40 bg-slate-800 rounded-lg -z-10 hidden md:block"></div>
+                    </div>
+
+                    <!-- Text Right -->
+                    <div class="space-y-6">
+                        <h2 class="text-3xl md:text-4xl font-bold text-yellow-50">Nosso Time</h2>
+                        <p class="text-lg text-slate-300 leading-relaxed">
+                            Acredito que grandes projetos não são construídos apenas com códigos complexos, mas com <strong class="text-yellow-50">parcerias sólidas</strong>. Na JHL Software, a tecnologia é o meio, mas as pessoas são o motor.
+                        </p>
+                        <p class="text-slate-400 leading-relaxed">
+                            Nossa cultura é pautada na colaboração intensa e na troca de conhecimento. Sabemos que a entrega de um software robusto e de sucesso depende da sintonia entre a liderança técnica e um time de execução qualificado. Por isso, conto com profissionais que compartilham da mesma visão de excelência e comprometimento.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Team Members Grid -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Hugo Capucho -->
+                    <div class="reveal bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-sky-400 transition-all duration-300 group">
+                        <div class="flex flex-col items-center text-center space-y-4">
+                            <img src="img/hugoCapucho.png"
+                                 alt="Hugo Capucho"
+                                 class="w-32 h-32 rounded-full border-4 border-slate-700 group-hover:border-sky-400 transition-all object-cover">
+                            <div>
+                                <h3 class="text-xl font-bold text-yellow-50">Hugo Capucho</h3>
+                                <p class="text-slate-400 text-sm">Desenvolvedor Full Stack</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="https://www.linkedin.com/in/hugo-capucho/"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="inline-flex items-center space-x-2 text-sky-400 hover:text-yellow-50 transition-colors">
+                                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                                </a>
+                                <a href="https://github.com/HCapucho"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="inline-flex items-center space-x-2 text-sky-400 hover:text-yellow-50 transition-colors">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fernando Bolani -->
+                    <div class="reveal delay-100 bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-sky-400 transition-all duration-300 group">
+                        <div class="flex flex-col items-center text-center space-y-4">
+                            <img src="img/fBolani.jpeg"
+                                 alt="Fernando Bolani"
+                                 class="w-32 h-32 rounded-full border-4 border-slate-700 group-hover:border-sky-400 transition-all object-cover">
+                            <div>
+                                <h3 class="text-xl font-bold text-yellow-50">Fernando Bolani</h3>
+                                <p class="text-slate-400 text-sm">Desenvolvedor Full Stack</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="https://www.linkedin.com/in/fbolani/"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="inline-flex items-center space-x-2 text-sky-400 hover:text-yellow-50 transition-colors">
+                                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                                </a>
+                                <a href="https://github.com/fbolani"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="inline-flex items-center space-x-2 text-sky-400 hover:text-yellow-50 transition-colors">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Guilherme Rudio -->
+                    <div class="reveal delay-200 bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-sky-400 transition-all duration-300 group">
+                        <div class="flex flex-col items-center text-center space-y-4">
+                            <img src="img/guilhermeRudio.jpeg"
+                                 alt="Guilherme Rudio"
+                                 class="w-32 h-32 rounded-full border-4 border-slate-700 group-hover:border-sky-400 transition-all object-cover">
+                            <div>
+                                <h3 class="text-xl font-bold text-yellow-50">Guilherme Rudio</h3>
+                                <p class="text-slate-400 text-sm">Desenvolvedor Full Stack</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="https://www.linkedin.com/in/guilherme-rudio-790939164/"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="inline-flex items-center space-x-2 text-sky-400 hover:text-yellow-50 transition-colors">
+                                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                                </a>
+                                <a href="https://github.com/Rudio1"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="inline-flex items-center space-x-2 text-sky-400 hover:text-yellow-50 transition-colors">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clientes Section -->
+        <section id="clientes" class="py-24 bg-slate-850 border-y border-slate-700 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-yellow-50 mb-4">Clientes</h2>
+                    <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+                        Confiança construída através de soluções robustas e resultados mensuráveis
+                    </p>
+                </div>
+
+                <!-- Marquee Container -->
+                <div class="relative">
+                    <div class="flex marquee">
+                        <!-- First Set of Clients -->
+                        <div class="flex gap-6 px-3">
+                            <!-- AFS Locações -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/logo.png"
+                                         alt="AFS Locações"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">AFS Locações</h3>
+                            </div>
+
+                            <!-- Claro -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/claro.jpg"
+                                         alt="Claro"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">Claro</h3>
+                            </div>
+
+                            <!-- Consul -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/Consul.png"
+                                         alt="Consul"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">Consul</h3>
+                            </div>
+
+                            <!-- Brastemp -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/Brastemp.png"
+                                         alt="Brastemp"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">Brastemp</h3>
+                            </div>
+
+                            <!-- Governo do Tocantins -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/Governo do Tocantins.png"
+                                         alt="Governo do Tocantins"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">Governo do Tocantins</h3>
+                            </div>
+
+                            <!-- DPE Tocantins -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/Defensoria Publica do Tocantins.png"
+                                         alt="Defensoria Pública do Tocantins"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">DPE Tocantins</h3>
+                            </div>
+
+                            <!-- TJTO -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/Tribunal de Justiça do Tocantins.png"
+                                         alt="Tribunal de Justiça do Tocantins"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">TJTO</h3>
+                            </div>
+                        </div>
+
+                        <!-- Duplicate Set for Infinite Loop -->
+                        <div class="flex gap-6 px-3">
+                            <!-- AFS Locações -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/logo.png"
+                                         alt="AFS Locações"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">AFS Locações</h3>
+                            </div>
+
+                            <!-- Claro -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/claro.jpg"
+                                         alt="Claro"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">Claro</h3>
+                            </div>
+
+                            <!-- Consul -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/Consul.png"
+                                         alt="Consul"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">Consul</h3>
+                            </div>
+
+                            <!-- Brastemp -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/Brastemp.png"
+                                         alt="Brastemp"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">Brastemp</h3>
+                            </div>
+
+                            <!-- Governo do Tocantins -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/Governo do Tocantins.png"
+                                         alt="Governo do Tocantins"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">Governo do Tocantins</h3>
+                            </div>
+
+                            <!-- DPE Tocantins -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/Defensoria Publica do Tocantins.png"
+                                         alt="Defensoria Pública do Tocantins"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">DPE Tocantins</h3>
+                            </div>
+
+                            <!-- TJTO -->
+                            <div class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
+                                <div class="w-full h-28 flex items-center justify-center">
+                                    <img src="img/clients/Tribunal de Justiça do Tocantins.png"
+                                         alt="Tribunal de Justiça do Tocantins"
+                                         class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <h3 class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">TJTO</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos Section - Bento Grid -->
+        <section id="projetos" class="py-24 bg-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="reveal text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-yellow-50 mb-4">Portfólio em Destaque</h2>
+                    <p class="text-lg text-slate-400">Projetos que demonstram complexidade técnica e resolução de problemas reais</p>
+                </div>
+
+                <!-- Bento Grid Layout -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project 1 - AFS Locações (DESTAQUE) -->
+                    <div class="reveal lg:col-span-3 bg-slate-800 border-2 border-sky-400/30 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group shadow-lg shadow-sky-400/10">
+                        <div class="grid md:grid-cols-2 gap-0">
+                            <img src="img/afsLocacoes.png" alt="AFS Locações - ERP Corporativo" class="w-full h-full object-cover min-h-[400px]" loading="lazy">
+                            <div class="p-8 flex flex-col justify-center space-y-5">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-4 py-1.5 bg-sky-400/20 border border-sky-400 rounded-full text-sm text-sky-400 font-bold">ERP Completo</span>
+                                    <span class="px-4 py-1.5 bg-sky-400/20 border border-sky-400 rounded-full text-sm text-sky-400 font-bold">.NET Core</span>
+                                    <span class="px-4 py-1.5 bg-sky-400/20 border border-sky-400 rounded-full text-sm text-sky-400 font-bold">SQL Server</span>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-3xl font-bold text-yellow-50 mb-2 group-hover:text-sky-400 transition-colors">
+                                        AFS Locações
+                                    </h3>
+                                    <p class="text-slate-300 text-lg font-semibold">ERP Corporativo "End-to-End"</p>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="text-sky-400 font-bold mb-2 flex items-center gap-2">
+                                            <i data-lucide="alert-circle" class="w-5 h-5"></i>
+                                            O Desafio
+                                        </h4>
+                                        <p class="text-slate-400 leading-relaxed">
+                                            Centralizar toda a operação da empresa em um único ecossistema digital integrado.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-yellow-50 font-bold mb-2 flex items-center gap-2">
+                                            <i data-lucide="check-circle" class="w-5 h-5"></i>
+                                            A Solução
+                                        </h4>
+                                        <p class="text-slate-400 leading-relaxed">
+                                            Desenvolvimento de um <strong class="text-yellow-50">ERP completo do zero</strong>. O sistema gerencia o fluxo financeiro e contábil e integra módulos operacionais complexos: <strong class="text-slate-200">CRM</strong>, <strong class="text-slate-200">gestão de pneus e abastecimento</strong>, <strong class="text-slate-200">controle de Ordens de Serviço (OS)</strong>, <strong class="text-slate-200">contratos</strong>, <strong class="text-slate-200">medições</strong> e todo o <strong class="text-slate-200">fluxo de suprimentos</strong>.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 text-slate-400 text-sm pt-2">
+                                    <i data-lucide="building-2" class="w-5 h-5 text-sky-400"></i>
+                                    <span>Solução completa de gestão empresarial</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 - Governo TO (Destaque Grande) -->
+                    <div class="reveal lg:col-span-2 bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
+                        <img src="img/governoTocantins.jpg" alt="Governo do Tocantins - Sistema de Folha" class="w-full h-64 object-cover" loading="lazy">
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center space-x-2">
+                                <span class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Alta Escala</span>
+                                <span class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Oracle DB</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-yellow-50 group-hover:text-sky-400 transition-colors">
+                                Governo do Tocantins
+                            </h3>
+                            <p class="text-slate-300 font-semibold">Gestão em Alta Escala</p>
+
+                            <div class="space-y-3">
+                                <div>
+                                    <p class="text-sky-400 text-sm font-bold mb-1">O Desafio:</p>
+                                    <p class="text-slate-400 text-sm leading-relaxed">
+                                        Implantar o sistema de folha de pagamento (Ergon) para mais de 55 mil servidores, superando duas tentativas anteriores frustradas por outras equipes.
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="text-yellow-50 text-sm font-bold mb-1">A Solução:</p>
+                                    <p class="text-slate-400 text-sm leading-relaxed">
+                                        Atuei na transformação crítica de dados, migrando bases legadas (Natural ADABAS) para uma arquitetura robusta e escalável em Oracle DB. O projeto foi um sucesso, garantindo a integridade e o processamento correto da folha estadual.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <a href="https://www.to.gov.br/secom/novo-sistema-para-folha-de-pagamento-sera-implantado/5mwuv74td6rz" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-sky-400 hover:text-yellow-50 transition-colors">
+                                <span class="font-semibold">Ver Notícia</span>
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 - DorinaPDF (Destaque Grande) -->
+                    <div class="reveal lg:col-span-1 bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
+                        <img src="img/dorinaPDF.png" alt="DorinaPDF - Acessibilidade" class="w-full h-64 object-cover" loading="lazy">
+                        <div class="p-6 space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Open Source</span>
+                                <span class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Acessibilidade</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-yellow-50 group-hover:text-sky-400 transition-colors">
+                                DorinaPDF (TJTO)
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Ferramenta multiplataforma que permite deficientes visuais analisarem a acessibilidade de documentos antes de anexá-los a processos jurídicos. Projeto open source que une inovação técnica e responsabilidade social.
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://dorinapdf.azurewebsites.net/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1 text-sky-400 hover:text-yellow-50 transition-colors text-sm">
+                                    <span class="font-semibold">Acessar</span>
+                                    <i data-lucide="external-link" class="w-3 h-3"></i>
+                                </a>
+                                <a href="https://esmat.tjto.jus.br/portal/index.php/noticias/116-institucional/4009-software-desenvolvido-pelo-tjto-e-dpe-para-verificar-o-nivel-de-acessibilidade-de-documentos-pdf-s-recebe-o-nome-da-filantropa-dorina-nowill" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1 text-sky-400 hover:text-yellow-50 transition-colors text-sm">
+                                    <span class="font-semibold">Notícia</span>
+                                    <i data-lucide="external-link" class="w-3 h-3"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 - DPE Tocantins -->
+                    <div class="reveal bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
+                        <img src="img/DPE-TO_01.jpg" alt="DPE Tocantins - Automação Jurídica" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-6 space-y-3">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">SOAP API</span>
+                                <span class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Integração</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-yellow-50 group-hover:text-sky-400 transition-colors">
+                                DPE Tocantins
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Módulo inteligente de distribuição automática de processos no e-Proc usando regras complexas (classe, competência, vara). Endpoints SOAP customizados para integração MNI 2.2.2.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 - Whirlpool -->
+                    <div class="reveal bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
+                        <img src="img/whirlpool.png" alt="Consul & Brastemp - Sistema +Top" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-6 space-y-3">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Big Data</span>
+                                <span class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">B2B</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-yellow-50 group-hover:text-sky-400 transition-colors">
+                                Consul & Brastemp
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Sistema +Top: processamento de vendas de grandes varejistas (Havan, Bemol, Novo Mundo) para premiar vendedores com pontos e resgates variados.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 - Claro -->
+                    <div class="reveal bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
+                        <img src="img/claromaes.png" alt="Claro - Portal Promocional" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-6 space-y-3">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">High Traffic</span>
+                                <span class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Gamificação</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-yellow-50 group-hover:text-sky-400 transition-colors">
+                                Claro
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Portal promocional com mecânica de "Roleta Premiada" para campanha de Dia das Mães. Aplicação performática para suportar alto tráfego de sorteios instantâneos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact/Footer Section -->
+    <footer id="contato" class="py-16 bg-slate-850 border-t border-slate-700">
+        <div class="container mx-auto px-6">
+            <!-- Contact CTA -->
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-yellow-50 mb-4">Vamos construir algo incrível?</h2>
+                <p class="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+                    Seja para um novo desafio técnico, uma parceria estratégica ou transformar sua visão em software robusto — estou disponível para conversarmos.
+                </p>
+                <a href="mailto:jhlmota@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 bg-sky-400 text-slate-900 rounded-full font-bold hover:bg-yellow-50 hover:shadow-lg hover:shadow-sky-400/20 transition-all duration-300">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    Iniciar Conversa
+                </a>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-8 border-t border-slate-700/50">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-slate-400 text-sm text-center md:text-left">
+                        Jhonatas Lima © 2025 - JHL Software. Construindo o futuro com o que há de melhor no mundo da tecnologia.
+                    </div>
+
+                    <div class="flex items-center space-x-6">
+                        <a href="https://github.com/jhonnhenry" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors" aria-label="GitHub">
+                            <i data-lucide="github" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/jhonataslima/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors" aria-label="LinkedIn">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://www.instagram.com/jhonatashenrique/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 z-40 p-3 bg-yellow-50 text-slate-900 rounded-full shadow-lg hover:bg-sky-400 hover:shadow-yellow-50/20 transition-all opacity-0 pointer-events-none" aria-label="Voltar ao topo">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking on links
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Header Shadow on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-shadow');
+            } else {
+                header.classList.remove('header-shadow');
+            }
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll Reveal with IntersectionObserver
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
