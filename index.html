@@ -156,23 +156,32 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
         }
 
-        /* Marquee Animation */
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
+        /* Scrollbar Hide for Carousel */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
-        .marquee {
-            animation: marquee 10s linear infinite;
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
         }
 
-        .marquee:hover {
-            animation-play-state: paused;
+        /* Draggable Carousel */
+        #clients-carousel {
+            scroll-snap-type: x proximity;
+        }
+
+        #clients-carousel .client-card {
+            scroll-snap-align: start;
+        }
+
+        #clients-carousel.is-dragging {
+            scroll-snap-type: none;
+            cursor: grabbing;
+        }
+
+        #clients-carousel.is-dragging .client-card {
+            pointer-events: none;
         }
 
         /* Back to Top Button */
@@ -458,193 +467,142 @@
         <!-- Clientes Section -->
         <section id="clientes" class="py-24 bg-slate-850 border-y border-slate-700 overflow-hidden">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16 reveal">
+                <div class="text-center mb-12 reveal">
                     <h2 class="text-3xl md:text-4xl font-bold text-yellow-50 mb-4">Clientes</h2>
                     <p class="text-lg text-slate-400 max-w-2xl mx-auto">
                         Confiança construída através de soluções robustas e resultados mensuráveis
                     </p>
                 </div>
 
-                <!-- Marquee Container -->
+                <!-- Drag Hint -->
+                <div class="flex items-center justify-center gap-2 mb-6 text-slate-500 text-sm">
+                    <i data-lucide="move-horizontal" class="w-4 h-4"></i>
+                    <span>Arraste para explorar</span>
+                </div>
+
+                <!-- Draggable Carousel Container -->
                 <div class="relative">
-                    <div class="flex marquee">
-                        <!-- First Set of Clients -->
-                        <div class="flex gap-6 px-3">
-                            <!-- AFS Locações -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
+                    <!-- Gradient Fade Left -->
+                    <div
+                        class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-850 to-transparent z-10 pointer-events-none">
+                    </div>
+                    <!-- Gradient Fade Right -->
+                    <div
+                        class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-850 to-transparent z-10 pointer-events-none">
+                    </div>
+
+                    <!-- Carousel Track -->
+                    <div id="clients-carousel"
+                        class="flex gap-6 cursor-grab active:cursor-grabbing select-none overflow-x-auto scrollbar-hide pb-4"
+                        style="scroll-behavior: auto; -webkit-overflow-scrolling: touch;">
+
+                        <!-- AFS Locações -->
+                        <div
+                            class="client-card flex-shrink-0 w-80 bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group">
+                            <div class="flex flex-col items-center text-center space-y-4">
+                                <div class="w-full h-32 flex items-center justify-center">
                                     <img src="img/clients/logo.png" alt="AFS Locações"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                                        draggable="false">
                                 </div>
                                 <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
+                                    class="text-base font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors">
                                     AFS Locações</h3>
                             </div>
+                        </div>
 
-                            <!-- Claro -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
+                        <!-- Claro -->
+                        <div
+                            class="client-card flex-shrink-0 w-80 bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group">
+                            <div class="flex flex-col items-center text-center space-y-4">
+                                <div class="w-full h-32 flex items-center justify-center">
                                     <img src="img/clients/claro.jpg" alt="Claro"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                                        draggable="false">
                                 </div>
                                 <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
+                                    class="text-base font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors">
                                     Claro</h3>
                             </div>
+                        </div>
 
-                            <!-- Consul -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
+                        <!-- Consul -->
+                        <div
+                            class="client-card flex-shrink-0 w-80 bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group">
+                            <div class="flex flex-col items-center text-center space-y-4">
+                                <div class="w-full h-32 flex items-center justify-center">
                                     <img src="img/clients/Consul.png" alt="Consul"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                                        draggable="false">
                                 </div>
                                 <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
+                                    class="text-base font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors">
                                     Consul</h3>
                             </div>
+                        </div>
 
-                            <!-- Brastemp -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
+                        <!-- Brastemp -->
+                        <div
+                            class="client-card flex-shrink-0 w-80 bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group">
+                            <div class="flex flex-col items-center text-center space-y-4">
+                                <div class="w-full h-32 flex items-center justify-center">
                                     <img src="img/clients/Brastemp.png" alt="Brastemp"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                                        draggable="false">
                                 </div>
                                 <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
+                                    class="text-base font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors">
                                     Brastemp</h3>
                             </div>
+                        </div>
 
-                            <!-- Governo do Tocantins -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
+                        <!-- Governo do Tocantins -->
+                        <div
+                            class="client-card flex-shrink-0 w-80 bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group">
+                            <div class="flex flex-col items-center text-center space-y-4">
+                                <div class="w-full h-32 flex items-center justify-center">
                                     <img src="img/clients/Governo do Tocantins.png" alt="Governo do Tocantins"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                                        draggable="false">
                                 </div>
                                 <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
+                                    class="text-base font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors">
                                     Governo do Tocantins</h3>
                             </div>
+                        </div>
 
-                            <!-- DPE Tocantins -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
+                        <!-- DPE Tocantins -->
+                        <div
+                            class="client-card flex-shrink-0 w-80 bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group">
+                            <div class="flex flex-col items-center text-center space-y-4">
+                                <div class="w-full h-32 flex items-center justify-center">
                                     <img src="img/clients/Defensoria Publica do Tocantins.png"
                                         alt="Defensoria Pública do Tocantins"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                                        draggable="false">
                                 </div>
                                 <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
+                                    class="text-base font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors">
                                     DPE Tocantins</h3>
                             </div>
+                        </div>
 
-                            <!-- TJTO -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
+                        <!-- TJTO -->
+                        <div
+                            class="client-card flex-shrink-0 w-80 bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group">
+                            <div class="flex flex-col items-center text-center space-y-4">
+                                <div class="w-full h-32 flex items-center justify-center">
                                     <img src="img/clients/Tribunal de Justiça do Tocantins.png"
                                         alt="Tribunal de Justiça do Tocantins"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                                        draggable="false">
                                 </div>
                                 <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
+                                    class="text-base font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors">
                                     TJTO</h3>
                             </div>
                         </div>
 
-                        <!-- Duplicate Set for Infinite Loop -->
-                        <div class="flex gap-6 px-3">
-                            <!-- AFS Locações -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
-                                    <img src="img/clients/logo.png" alt="AFS Locações"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                </div>
-                                <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
-                                    AFS Locações</h3>
-                            </div>
-
-                            <!-- Claro -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
-                                    <img src="img/clients/claro.jpg" alt="Claro"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                </div>
-                                <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
-                                    Claro</h3>
-                            </div>
-
-                            <!-- Consul -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
-                                    <img src="img/clients/Consul.png" alt="Consul"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                </div>
-                                <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
-                                    Consul</h3>
-                            </div>
-
-                            <!-- Brastemp -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
-                                    <img src="img/clients/Brastemp.png" alt="Brastemp"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                </div>
-                                <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
-                                    Brastemp</h3>
-                            </div>
-
-                            <!-- Governo do Tocantins -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
-                                    <img src="img/clients/Governo do Tocantins.png" alt="Governo do Tocantins"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                </div>
-                                <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
-                                    Governo do Tocantins</h3>
-                            </div>
-
-                            <!-- DPE Tocantins -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
-                                    <img src="img/clients/Defensoria Publica do Tocantins.png"
-                                        alt="Defensoria Pública do Tocantins"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                </div>
-                                <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
-                                    DPE Tocantins</h3>
-                            </div>
-
-                            <!-- TJTO -->
-                            <div
-                                class="bg-slate-900 border border-slate-700 rounded-xl p-10 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/10 transition-all duration-300 group flex flex-col items-center justify-center text-center space-y-4 min-w-[280px]">
-                                <div class="w-full h-28 flex items-center justify-center">
-                                    <img src="img/clients/Tribunal de Justiça do Tocantins.png"
-                                        alt="Tribunal de Justiça do Tocantins"
-                                        class="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                </div>
-                                <h3
-                                    class="text-sm font-semibold text-slate-300 group-hover:text-yellow-50 transition-colors whitespace-nowrap">
-                                    TJTO</h3>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1024,6 +982,84 @@
                 behavior: 'smooth'
             });
         });
+
+        // Draggable Clients Carousel
+        const carousel = document.getElementById('clients-carousel');
+        if (carousel) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let velX = 0;
+            let momentumID;
+
+            const stopMomentum = () => {
+                cancelAnimationFrame(momentumID);
+            };
+
+            const momentum = () => {
+                carousel.scrollLeft += velX;
+                velX *= 0.95;
+                if (Math.abs(velX) > 0.5) {
+                    momentumID = requestAnimationFrame(momentum);
+                }
+            };
+
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                carousel.classList.add('is-dragging');
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+                stopMomentum();
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                if (isDown) {
+                    isDown = false;
+                    carousel.classList.remove('is-dragging');
+                    momentum();
+                }
+            });
+
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.classList.remove('is-dragging');
+                momentum();
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                const prevScrollLeft = carousel.scrollLeft;
+                carousel.scrollLeft = scrollLeft - walk;
+                velX = carousel.scrollLeft - prevScrollLeft;
+            });
+
+            // Touch support
+            carousel.addEventListener('touchstart', (e) => {
+                isDown = true;
+                carousel.classList.add('is-dragging');
+                startX = e.touches[0].pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+                stopMomentum();
+            }, { passive: true });
+
+            carousel.addEventListener('touchend', () => {
+                isDown = false;
+                carousel.classList.remove('is-dragging');
+                momentum();
+            });
+
+            carousel.addEventListener('touchmove', (e) => {
+                if (!isDown) return;
+                const x = e.touches[0].pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                const prevScrollLeft = carousel.scrollLeft;
+                carousel.scrollLeft = scrollLeft - walk;
+                velX = carousel.scrollLeft - prevScrollLeft;
+            }, { passive: true });
+        }
     </script>
 </body>
 
