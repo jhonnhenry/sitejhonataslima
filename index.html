@@ -685,7 +685,121 @@
                         </div>
                     </div>
 
-                    <!-- Project 2 - Governo TO (Destaque Grande) -->
+                    <!-- Project 2 - RabbitMQ Saga Pattern (Destaque Grande) -->
+                    <div
+                        class="reveal lg:col-span-2 bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
+                        <img src="img/rabbitMQSaga.png" alt="RabbitMQ Saga Pattern - Transações Distribuídas"
+                            class="w-full h-94 object-cover" loading="lazy">
+                        <div class="p-6 space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">RabbitMQ</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">.NET
+                                    Core 9</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Microserviços</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Saga
+                                    Pattern</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-yellow-50 group-hover:text-sky-400 transition-colors">
+                                RabbitMQ Saga Pattern
+                            </h3>
+                            <p class="text-slate-300 font-semibold">Transações Distribuídas em Microserviços</p>
+
+                            <div class="space-y-3">
+                                <div>
+                                    <h4 class="text-sky-400 font-bold mb-2 flex items-center gap-2">
+                                        <i data-lucide="alert-circle" class="w-5 h-5"></i>
+                                        O Desafio
+                                    </h4>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Como coordenar transações distribuídas entre múltiplos microserviços sem usar
+                                        transações ACID tradicionais? Em arquiteturas de microserviços, garantir
+                                        consistência de dados entre serviços independentes é um dos maiores desafios
+                                        técnicos.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4 class="text-yellow-50 font-bold mb-2 flex items-center gap-2">
+                                        <i data-lucide="check-circle" class="w-5 h-5"></i>
+                                        A Solução
+                                    </h4>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Implementação completa do <strong class="text-yellow-50">Saga Pattern com
+                                            orquestração centralizada</strong> usando RabbitMQ. O sistema coordena uma
+                                        sequência de operações locais (pedido → pagamento → estoque → entrega) onde cada
+                                        operação publica eventos que dispara a próxima etapa. Em caso de falha, <strong
+                                            class="text-slate-200">compensating transactions</strong> fazem rollback
+                                        automático (ex: estoque falha → reembolso automático do pagamento). Inclui Dead
+                                        Letter Queue, durabilidade de mensagens e retry logic.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3 text-slate-400 text-sm pt-2">
+                                <i data-lucide="git-branch" class="w-5 h-5 text-sky-400"></i>
+                                <span>Arquitetura de microserviços resiliente</span>
+                            </div>
+
+                            <a href="https://github.com/jhonnhenry/Saga-Pattern-With-RabbitMQ" target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center space-x-2 text-sky-400 hover:text-yellow-50 transition-colors font-semibold mt-4">
+                                <span>Ver Repositório</span>
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 - Consul & Brastemp (Card Normal) -->
+                    <div
+                        class="reveal bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
+                        <img src="img/whirlpool.png" alt="Consul & Brastemp - Sistema +Top"
+                            class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-6 space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Big
+                                    Data</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">B2B</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-yellow-50 group-hover:text-sky-400 transition-colors mb-1">
+                                    Consul & Brastemp
+                                </h3>
+                                <p class="text-slate-300 text-sm font-semibold">Inteligência de Dados B2B</p>
+                            </div>
+
+                            <div class="space-y-3 text-sm">
+                                <div>
+                                    <h4 class="text-sky-400 font-bold mb-1 flex items-center gap-2">
+                                        <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                                        O Desafio
+                                    </h4>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Processar vendas de grandes varejistas (Havan, Bemol, Novo Mundo, etc.) para premiar
+                                        vendedores com sistemas inteligentes de pontuação.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4 class="text-yellow-50 font-bold mb-1 flex items-center gap-2">
+                                        <i data-lucide="check-circle" class="w-4 h-4"></i>
+                                        A Solução
+                                    </h4>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Atuei na equipe do sistema <strong class="text-yellow-50">+Top</strong>. Criamos lógica de
+                                        processamento de vendas que converte desempenho em <strong class="text-slate-200">pontos
+                                            por categoria</strong>. O sistema permite resgate de recompensas variadas (produtos
+                                        físicos, recargas, pagamentos), incentivando a força de vendas em nível nacional.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 - Governo TO (Destaque Grande) -->
                     <div
                         class="reveal lg:col-span-2 bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
                         <img src="img/governoTocantins.jpg" alt="Governo do Tocantins - Sistema de Folha"
@@ -731,7 +845,7 @@
                         </div>
                     </div>
 
-                    <!-- Project 3 - DorinaPDF (Destaque Grande) -->
+                    <!-- Project 5 - DorinaPDF (Destaque Grande) -->
                     <div
                         class="reveal lg:col-span-1 bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
                         <img src="img/dorinaPDF.png" alt="DorinaPDF - Acessibilidade" class="w-full h-64 object-cover"
@@ -768,53 +882,6 @@
                         </div>
                     </div>
 
-                    <!-- Project 4 - DPE Tocantins -->
-                    <div
-                        class="reveal bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
-                        <img src="img/DPE-TO_01.jpg" alt="DPE Tocantins - Automação Jurídica"
-                            class="w-full h-48 object-cover" loading="lazy">
-                        <div class="p-6 space-y-3">
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">SOAP
-                                    API</span>
-                                <span
-                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Integração</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-yellow-50 group-hover:text-sky-400 transition-colors">
-                                DPE Tocantins
-                            </h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Módulo inteligente de distribuição automática de processos no e-Proc usando regras
-                                complexas (classe, competência, vara). Endpoints SOAP customizados para integração MNI
-                                2.2.2.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Project 5 - Whirlpool -->
-                    <div
-                        class="reveal bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
-                        <img src="img/whirlpool.png" alt="Consul & Brastemp - Sistema +Top"
-                            class="w-full h-48 object-cover" loading="lazy">
-                        <div class="p-6 space-y-3">
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Big
-                                    Data</span>
-                                <span
-                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">B2B</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-yellow-50 group-hover:text-sky-400 transition-colors">
-                                Consul & Brastemp
-                            </h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Sistema +Top: processamento de vendas de grandes varejistas (Havan, Bemol, Novo Mundo)
-                                para premiar vendedores com pontos e resgates variados.
-                            </p>
-                        </div>
-                    </div>
-
                     <!-- Project 6 - Claro -->
                     <div
                         class="reveal bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
@@ -834,6 +901,30 @@
                             <p class="text-slate-400 text-sm leading-relaxed">
                                 Portal promocional com mecânica de "Roleta Premiada" para campanha de Dia das Mães.
                                 Aplicação performática para suportar alto tráfego de sorteios instantâneos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 7 - DPE Tocantins -->
+                    <div
+                        class="reveal lg:col-span-2 bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-yellow-50 transition-all group">
+                        <img src="img/DPE-TO_01.jpg" alt="DPE Tocantins - Automação Jurídica"
+                            class="w-full h-64 object-cover" loading="lazy">
+                        <div class="p-6 space-y-3">
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">SOAP
+                                    API</span>
+                                <span
+                                    class="px-3 py-1 bg-slate-900 border border-slate-600 rounded-full text-xs text-sky-400 font-semibold">Integração</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-yellow-50 group-hover:text-sky-400 transition-colors">
+                                DPE Tocantins
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Módulo inteligente de distribuição automática de processos no e-Proc usando regras
+                                complexas (classe, competência, vara). Endpoints SOAP customizados para integração MNI
+                                2.2.2.
                             </p>
                         </div>
                     </div>
