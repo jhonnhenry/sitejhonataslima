@@ -36,39 +36,52 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Jhonatas Lima",
-      "jobTitle": "Arquiteto de Soluções & Tech Lead",
-      "url": "https://jhonataslima.com",
-      "sameAs": [
-        "https://github.com/jhonnhenry",
-        "https://www.linkedin.com/in/jhonataslima/",
-        "https://www.instagram.com/jhonatashenrique/"
-      ],
-      "knowsAbout": ["C#", ".NET", "Azure", "Microservices", "Software Architecture", "System Design"],
-      "worksFor": {
-        "@type": "Organization",
-        "name": "JHL Software"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "JHL Software",
-      "image": "https://jhonataslima.com/img/logo JHL Software.png",
-      "url": "https://jhonataslima.com",
-      "telephone": "",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Palmas",
-        "addressRegion": "TO",
-        "addressCountry": "BR"
-      },
-      "founder": {
-        "@id": "https://jhonataslima.com/#person"
-      }
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://jhonataslima.com/#person",
+          "name": "Jhonatas Lima",
+          "jobTitle": "Arquiteto de Soluções & Tech Lead",
+          "url": "https://jhonataslima.com",
+          "image": "https://jhonataslima.com/img/jhon01.png",
+          "sameAs": [
+            "https://github.com/jhonnhenry",
+            "https://www.linkedin.com/in/jhonataslima/",
+            "https://www.instagram.com/jhonatashenrique/"
+          ],
+          "description": "Arquiteto de Soluções e Tech Lead com mais de 15 anos de experiência, especialista em Ecossistema Microsoft (.NET, Azure) e Fundador da JHL Software.",
+          "knowsAbout": ["C#", ".NET", "Azure", "Microservices", "Software Architecture", "System Design", "Cloud Computing"],
+          "alumniOf": [
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Faculdade Católica do Tocantins"
+            },
+            {
+              "@type": "EducationalOrganization",
+              "name": "IFTO - Instituto Federal do Tocantins"
+            }
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://jhonataslima.com/#organization",
+          "name": "JHL Software",
+          "image": "https://jhonataslima.com/img/logo JHL Software.png",
+          "url": "https://jhonataslima.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Palmas",
+            "addressRegion": "TO",
+            "addressCountry": "BR"
+          },
+          "founder": {
+            "@id": "https://jhonataslima.com/#person"
+          },
+          "member": {
+            "@id": "https://jhonataslima.com/#person"
+          }
+        }
+      ]
     }
     </script>
 
@@ -1385,6 +1398,43 @@
                 carousel.scrollLeft = scrollLeft - walk;
                 velX = carousel.scrollLeft - prevScrollLeft;
             }, { passive: true });
+        }
+
+        /**
+         * WebMCP (Web Model Context Protocol) Integration
+         * Enables AI agents to call tools directly on this page.
+         * For Chrome 146+ with WebMCP enabled.
+         */
+        if (typeof navigator.modelContext !== 'undefined' && typeof navigator.modelContext.registerTool === 'function') {
+            navigator.modelContext.registerTool({
+                name: "get_professional_profile",
+                description: "Retorna o perfil profissional completo de Jhonatas Lima, incluindo stack tecnológica e áreas de atuação.",
+                inputSchema: {
+                    type: "object",
+                    properties: {
+                        detail_level: {
+                            type: "string",
+                            enum: ["summary", "full"],
+                            description: "O nível de detalhe desejado."
+                        }
+                    }
+                },
+                execute: async (args) => {
+                    const profile = {
+                        name: "Jhonatas Lima",
+                        title: "Arquiteto de Soluções & Tech Lead .NET",
+                        experience: "15+ anos",
+                        founder_of: "JHL Software",
+                        stack: ["C#", ".NET Core", "Azure", "Microservices", "RabbitMQ", "Arquitetura de Software"],
+                        education: [
+                            "Bacharel em Sistemas de Informação (Católica do Tocantins)",
+                            "Técnico em Informática (IFTO)"
+                        ],
+                        link_llm_txt: "https://jhonataslima.com/llm.txt"
+                    };
+                    return args.detail_level === 'summary' ? { name: profile.name, title: profile.title } : profile;
+                }
+            });
         }
     </script>
 </body>

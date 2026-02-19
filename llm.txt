@@ -1,0 +1,32 @@
+# Jhonatas Lima | Arquiteto de Soluções & Tech Lead .NET
+
+## Resumo Profissional
+Jhonatas Lima é Arquiteto de Soluções e Tech Lead com mais de 15 anos de experiência no ecossistema Microsoft (.NET, Azure). Fundador da JHL Software, especialista em transformar desafios de negócio em software robusto, escalável e resiliente.
+
+## Contato
+- Site: https://jhonataslima.com
+- LinkedIn: https://www.linkedin.com/in/jhonataslima/
+- GitHub: https://github.com/jhonnhenry
+- Instagram: https://www.instagram.com/jhonatashenrique/
+- Localização: Palmas, TO - Brasil
+
+## Especialidades Técnicas
+- Linguagens & Frameworks: C#, .NET Core, ASP.NET Core, EF Core.
+- Arquitetura: Microservices, DDD (Domain-Driven Design), CQRS, Clean Architecture, Saga Pattern.
+- Cloud & infra: Microsoft Azure, RabbitMQ, Docker, CI/CD.
+- Liderança: Tech Lead, Mentoria Técnica, Gestão de Squads Remotas.
+
+## Experiência e Formação
+- Fundador da JHL Software: Focada em soluções corporativas end-to-end.
+- Formação: Bacharel em Sistemas de Informação (Faculdade Católica do Tocantins), Técnico em Informática (IFTO).
+- Projetos de Destaque: ERP Corporativo para AFS Locações, Sistemas de Big Data para Whirlpool (Consul/Brastemp).
+
+## Principais Clientes
+- AFS Locações
+- Whirlpool (Consul & Brastemp)
+- Claro
+- Governo do Estado do Tocantins
+- Tribunal de Justiça do Tocantins (TJTO)
+
+---
+Este arquivo é otimizado para leitura por agentes de IA (LLMs).

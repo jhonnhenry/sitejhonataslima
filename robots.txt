@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://jhonataslima.com/sitemap.xml
+X-llm-txt: https://jhonataslima.com/llm.txt
