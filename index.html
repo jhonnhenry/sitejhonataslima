@@ -4,200 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jhonatas Lima - Tech Lead & Solutions Architect</title>
+    <title>Jhonatas Lima | Arquiteto de Soluções & Tech Lead .NET</title>
     <meta name="description"
-        content="Desenvolvedor e Arquiteto de Soluções com mais de 15 anos de experiência em desenvolvimento de software.">
+        content="Jhonatas Lima é Arquiteto de Soluções e Tech Lead com mais de 15 anos de experiência. Especialista em Ecossistema Microsoft (.NET, Azure) e Fundador da JHL Software. Transformando desafios em software robusto.">
+    <meta name="keywords"
+        content="Jhonatas Lima, JHL Software, Arquiteto de Soluções, Tech Lead, Desenvolvedor .NET, Azure, Software Architecture, Consultoria de TI, Desenvolvimento de Software">
+    <meta name="author" content="Jhonatas Lima">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jhonataslima.com/">
+    <meta property="og:title" content="Jhonatas Lima | Arquiteto de Soluções & Tech Lead .NET">
+    <meta property="og:description"
+        content="Arquiteto de Soluções com mais de 15 anos de experiência. Transformando desafios de negócio em software robusto e escalável.">
+    <meta property="og:image" content="https://jhonataslima.com/img/jhon01.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://jhonataslima.com/">
+    <meta property="twitter:title" content="Jhonatas Lima | Arquiteto de Soluções & Tech Lead .NET">
+    <meta property="twitter:description"
+        content="Arquiteto de Soluções com mais de 15 anos de experiência. Transformando desafios de negócio em software robusto e escalável.">
+    <meta property="twitter:image" content="https://jhonataslima.com/img/jhon01.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jhonatas Lima",
+      "jobTitle": "Arquiteto de Soluções & Tech Lead",
+      "url": "https://jhonataslima.com",
+      "sameAs": [
+        "https://github.com/jhonnhenry",
+        "https://www.linkedin.com/in/jhonataslima/",
+        "https://www.instagram.com/jhonatashenrique/"
+      ],
+      "knowsAbout": ["C#", ".NET", "Azure", "Microservices", "Software Architecture", "System Design"],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "JHL Software"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "JHL Software",
+      "image": "https://jhonataslima.com/img/logo JHL Software.png",
+      "url": "https://jhonataslima.com",
+      "telephone": "",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Palmas",
+        "addressRegion": "TO",
+        "addressCountry": "BR"
+      },
+      "founder": {
+        "@id": "https://jhonataslima.com/#person"
+      }
+    }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS (Production Build) -->
+    <link href="output.css" rel="stylesheet">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #e2e8f0;
-            overflow-x: hidden;
-        }
-
-        /* Custom Tailwind Config */
-        @layer utilities {
-            .bg-slate-surface {
-                background-color: #1e293b;
-            }
-
-            .bg-slate-850 {
-                background-color: #172033;
-            }
-
-            .text-cream {
-                color: #fefce8;
-            }
-
-            .text-sky {
-                color: #38bdf8;
-            }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
-
-        /* Glassmorphism */
-        .glass {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        /* Glow Effect */
-        .glow {
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-        }
-
-        .glow-hover:hover {
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
-            transition: box-shadow 0.3s ease;
-        }
-
-        /* Gradient Text */
-        .gradient-text {
-            background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .fade-up {
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards;
-        }
-
-        .float-animation {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        /* Scroll Reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Header Shadow on Scroll */
-        .header-shadow {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Scrollbar Hide for Carousel */
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Draggable Carousel */
-        #clients-carousel {
-            scroll-snap-type: x proximity;
-        }
-
-        #clients-carousel .client-card {
-            scroll-snap-align: start;
-        }
-
-        #clients-carousel.is-dragging {
-            scroll-snap-type: none;
-            cursor: grabbing;
-        }
-
-        #clients-carousel.is-dragging .client-card {
-            pointer-events: none;
-        }
-
-        /* Back to Top Button */
-        #back-to-top {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        #back-to-top.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        #back-to-top:hover {
-            transform: translateY(-2px);
-        }
-    </style>
 </head>
 
 <body>

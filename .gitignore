@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+output.css
+
+# OS files
+.DS_Store
+Thumbs.db
